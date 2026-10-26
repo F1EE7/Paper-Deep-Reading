@@ -117,7 +117,7 @@ spec 暗示但任务测试最易遗漏的输入/条件（每条已钉进所属�
 - Create: `examples/attention-is-all-you-need-notes.md`
 
 **Interfaces:**
-- Consumes: Task 5 的 8 字段模板（逐字使用）；《Attention Is All You Need》真实内容（可读 `C:\Users\F1EE\.zcode\workspace\default\Attention_Is_All_You_Need.pdf` 取材，或凭可靠知识撰写并自查）
+- Consumes: Task 5 的 8 字段模板（逐字使用）；《Attention Is All You Need》真实内容（可读本地论文 PDF 取材，或凭可靠知识撰写并自查）
 - Produces: 一份完整、内容真实的成品精读笔记；README 与 demo 引用的锚点
 
 - [ ] **Step 1:** 按 8 字段写满：方法拆解给编码器-解码器结构直觉；关键公式给缩放点积注意力 $softmax(QK^T/\sqrt{d_k})V$ 的逐符号直觉；局限与质疑须有真实批评点（如 O(n²) 复杂度、position encoding 的选择）
