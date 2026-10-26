@@ -1,0 +1,14 @@
+{
+  "name": "paper-deep-reading",
+  "owner": {
+    "name": "F1EE7",
+    "url": "https://github.com/F1EE7"
+  },
+  "plugins": [
+    {
+      "name": "paper-deep-reading",
+      "source": "./",
+      "description": "Three-pass academic paper reading coach: 速览判断值不值得读、诊断式精读、批判性审读、结构化笔记。"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "paper-deep-reading",
+  "version": "0.1.0",
+  "description": "Three-pass academic paper reading coach: 速览判断值不值得读、诊断式精读、批判性审读、结构化笔记。Turns AI from summarizer into reading coach.",
+  "author": {
+    "name": "F1EE7",
+    "url": "https://github.com/F1EE7"
+  },
+  "homepage": "https://github.com/F1EE7/Paper-Deep-Reading",
+  "license": "MIT",
+  "keywords": [
+    "paper-reading",
+    "academic",
+    "three-pass",
+    "critical-reading",
+    "education",
+    "reading-coach"
+  ]
+}
