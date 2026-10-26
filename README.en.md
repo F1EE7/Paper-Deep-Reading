@@ -43,7 +43,7 @@ Three differentiating behaviors: **triage before effort** (the overview card is 
 【方法】6-layer encoder-decoder; all dependencies via self-attention;
         order injected through position encoding
 【证据】28.4 BLEU on WMT14 En-De (2+ BLEU over best prior, incl. ensembles)
-        at 1-2 orders of magnitude less training compute
+        at less than a quarter of the training cost of the previous state of the art
 【判断】✅ Worth a close read — reading attention for a course report?
         This is the primary source
 

@@ -10,7 +10,7 @@
 
 1. **Transformer**：完全去掉循环和卷积，仅靠 self-attention 建模序列内依赖，位置信息由 position encoding 显式注入。
 2. **多头注意力**：把 attention 拆成 8 个并行的"子空间视角"，每个头 64 维，各自关注不同关系模式后拼接。
-3. **效果与成本同时改善**：WMT14 英德 28.4 BLEU（超当时最佳集成 2 BLEU 以上），英法 41.8 BLEU 单模型 SOTA，且训练 FLOPs 只有小零头。
+3. **效果与成本同时改善**：WMT14 英德 28.4 BLEU（超当时最佳集成 2 BLEU 以上），英法 41.8 BLEU 单模型 SOTA，且训练成本不足此前 SOTA 的四分之一（论文结论原文口径）。
 
 论文声称的贡献和实际贡献基本一致——第 3 条是硬结果，第 1、2 条支撑了此后几乎所有大模型架构。
 
@@ -37,13 +37,13 @@ $$\mathrm{Attention}(Q, K, V) = \mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k
 
 ## 实验与证据强度
 
-- WMT14 英德 28.4 BLEU（big model），超过此前最佳（含集成）2.0 BLEU；英法 41.8 BLEU。训练成本表（Table 2）显示 FLOPs 比此前 SOTA 低 1–2 个数量级。
+- WMT14 英德 28.4 BLEU（big model），超过此前最佳（含集成）2.0 BLEU；英法 41.8 BLEU。训练成本表（Table 2）显示其成本不足此前 SOTA 的四分之一。
 - 附加实验：句长分桶分析（长句不劣化）、constituency parsing 泛化（少量调参即有竞争力）。
 - **证据强度：撑得住**——主结果用同任务同评测，对比对象是当时最强系统；但要打折处见下（单种子、成本口径）。
 
 ## 局限与质疑
 
-- **O(n²) 复杂度（重要）**：自注意力对序列长度平方增长，长文档/高分辨率场景直接受限。作者在结论里自己也承认，并把它列为未来工作方向——后来的 sparse/linear attention、FlashAttention 整条线都是对它的回应。
+- **O(n²) 复杂度（重要）**：自注意力对序列长度平方增长，长文档/高分辨率场景直接受限。作者在第 4 节 Table 1 的讨论里自己承认（把 self-attention 限制在大小 r 的邻域内是未来方向："We plan to investigate this approach further in future work"）——后来的 sparse/linear attention、FlashAttention 整条线都是对它的回应。
 - **单种子 BLEU（疑问）**：主表数字未见多 seed 方差；BLEU 对翻译质量的覆盖本身有限（后续工作普遍报告多 checkpoint 平均）。
 - **位置编码的选择（疑问）**：正弦 vs 可学习编码在该论文设定下效果相当（Table 3 (E)），正弦的"可外推到更长序列"优势当时并未验证——这恰是本笔记读它的目的之一，课程报告中应如实说明。
 - **label smoothing 的代价（作者已承认）**：提 BLEU 但伤 perplexity，说明指标间存在权衡。
